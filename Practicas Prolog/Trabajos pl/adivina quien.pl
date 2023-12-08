@@ -1,24 +1,24 @@
 % Definición de personajes de Bob Esponja
-personaje(bob_esponja).
-personaje(patricio).
-personaje(arenita).
-personaje(plankton).
+personaje(Lara Croft).
+personaje(Hank).
+personaje(Sefear).
+personaje(Bill).
 
 % Reglas para hacer preguntas y adivinar el personaje
 adivina_personaje :-
-    write('¿Tu personaje es un marino? (s/n): '),
+    write('¿Tu personaje es mujer? (s/n): '),
     read(Resp1),
-    (Resp1 = 's' -> adivina_marino ; adivina_calamar).
+    (Resp1 = 's' -> adivina_1 ; adivina_c).
 
-adivina_marino :-
-    write('¿Tu personaje es una esponja amarilla? (s/n): '),
+adivina_1 :-
+    write('¿Tu personaje es una aventurera en busca de la accion? (s/n): '),
     read(Resp),
-    (Resp = 's' -> adivina_amigo_bob ; adivina_otro_marino).
+    (Resp = 's' -> adivina_2 ; adivina_3).
 
-adivina_amigo_bob :-
-    write('¿Tu personaje es amigo de Bob Esponja? (s/n): '),
+adivina_2 :-
+    write('¿Tu personaje es amigo de Lara Croft? (s/n): '),
     read(Resp),
-    (Resp = 's' -> adivina_rareza_4(patricio) ; adivina_rareza_5).
+    (Resp = 's' -> adivina_rareza_4(Hank) ; adivina_rareza_5).
 
 adivina_rareza_4(Personaje) :-
     write('¿Tu personaje es de rareza 4? (s/n): '),
@@ -30,18 +30,18 @@ adivina_rareza_5 :-
     read(Resp),
     (Resp = 's' -> write('¡No se encontró el personaje!'), nl ; write('¡No se encontró el personaje!'), nl).
 
-adivina_otro_marino :-
-    write('¿Tu personaje es otro tipo de marino? (s/n): '),
+adivina_3 :-
+    write('¿Tu personaje es otro tipo de Aventurero? (s/n): '),
     read(Resp),
-    (Resp = 's' -> adivina_otra_especie ; adivina_otro_marino).
+    (Resp = 's' -> adivina_4 ; adivina_3).
 
-adivina_otra_especie :-
-    write('¿Tu personaje es un calamar? (s/n): '),
+adivina_4 :-
+    write('¿Tu personaje es un Tracionero? (s/n): '),
     read(Resp),
-    (Resp = 's' -> adivina_color_rosado ; adivina_otra_especie).
+    (Resp = 's' -> adivina_5 ; adivina_4).
 
-adivina_color_rosado :-
-    write('¿Tu personaje es de color rosado? (s/n): '),
+adivina_5 :-
+    write('¿Tu personaje es hombre (s/n): '),
     read(Resp),
     (Resp = 's' -> adivina_rareza_5(plankton) ; write('¡No se encontró el personaje!'), nl).
 
